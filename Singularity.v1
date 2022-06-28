@@ -26,9 +26,9 @@ export PATH=$PATH:/opt/software/duk
 
   cd duk
 
-  patch duk.cpp ../duk_singularity/duk.cpp.patch || :
-  patch kmerhash.cpp ../duk_singularity/kmerhash.cpp.patch || :
-  patch kmerhash.h ../duk_singularity/kmerhash.h.patch || :
+  patch duk.cpp ../duk_singularity/patches/duk.cpp.patch || :
+  patch kmerhash.cpp ../duk_singularity/patches/kmerhash.cpp.patch || :
+  patch kmerhash.h ../duk_singularity/patches/kmerhash.h.patch || :
 
   # head -n 13 duk.cpp > duk.cpp.1
   # echo "#include <cstring>" >> duk.cpp.1

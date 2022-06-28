@@ -22,4 +22,11 @@ export PATH=$PATH:/opt/software/duk
   wget https://downloads.sourceforge.net/project/duk/duk.tar
   tar xf duk.tar
   cd duk
+
+  head -n 13 duk.cpp > duk.cpp.1
+  echo "#include <cstring>" >> duk.cpp.1
+  tail -n +14 >> duk.cpp.1
+  mv duk.cpp.1 duk.cpp
+  head -n 20 duk.cpp
+
   make

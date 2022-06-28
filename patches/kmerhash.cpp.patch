@@ -1,0 +1,74 @@
+10c10
+< CKmerhash<ValueClass>::CKmerhash( int kmer): mersize(kmer), tablesize(0), numkeys(0) {
+---
+> CKmerhash<ValueClass>::CKmerhash( unsigned int kmer): mersize(kmer), tablesize(0), numkeys(0) {
+14c14
+<   loadingLimit = (int)(tablesize * LOADINGFACTORTHRES);
+---
+>   loadingLimit = (uint)(tablesize * LOADINGFACTORTHRES);
+18c18
+<   for (int i=1; i< nbits; i++)
+---
+>   for (uint i=1; i< nbits; i++)
+27c27
+<   for(int i=0; i<tablesize; i++)
+---
+>   for(uint i=0; i<tablesize; i++)
+41c41
+< int CKmerhash<ValueClass>:: index(ulong key) {
+---
+> unsigned int CKmerhash<ValueClass>:: index(ulong key) {
+43c43
+< int ind = ((key >> nbits) ^  key);
+---
+> uint ind = ((key >> nbits) ^  key);
+58a59,61
+>    cout << "TABLESIZE " << tablesize << endl;
+>    cout << "LOADINGLIMIT " << loadingLimit << endl;
+>    cout << "NEXT_TABLESIZE " << (tablesize << 1) << endl;
+72c75
+<     for(int i=0; i<tablesize; i++)
+---
+>     for(uint i=0; i<tablesize; i++)
+75c78
+<     for(int i=0; i<oldTablesize; i++) {
+---
+>     for(uint i=0; i<oldTablesize; i++) {
+91c94
+< int CKmerhash<ValueClass>:: insert(ulong key, const ValueClass& val) {
+---
+> unsigned int CKmerhash<ValueClass>:: insert(ulong key, const ValueClass& val) {
+97c100
+<     int ind = index(key);
+---
+>     uint ind = index(key);
+109c112
+< int CKmerhash<ValueClass>:: insert(ulong key) {
+---
+> unsigned int CKmerhash<ValueClass>:: insert(ulong key) {
+114c117
+<     int ind = index(key);
+---
+>     uint ind = index(key);
+124,125c127,128
+< int CKmerhash<ValueClass>:: find(ulong key, ValueClass& val) {
+<  int ind = index(key);
+---
+> unsigned int CKmerhash<ValueClass>:: find(ulong key, ValueClass& val) {
+>  uint ind = index(key);
+137c140
+< int CKmerhash<ValueClass>:: find(ulong key) {
+---
+> unsigned int CKmerhash<ValueClass>:: find(ulong key) {
+139c142
+<  int ind = index(key);
+---
+>  uint ind = index(key);
+157c160
+<     int ind = index(key);
+---
+>     uint ind = index(key);
+176c179
+<  int i;
+---
+>  uint i;

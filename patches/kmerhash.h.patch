@@ -1,0 +1,40 @@
+12a13
+> typedef unsigned int uint;
+19,21c20,22
+<    int mersize;
+<    int tablesize;
+<    int numkeys;
+---
+>    uint mersize;
+>    uint tablesize;
+>    uint numkeys;
+23c24
+<    int nbits;
+---
+>    uint nbits;
+25c26
+<    int loadingLimit;
+---
+>    uint loadingLimit;
+30c31
+<    int index( ulong key);
+---
+>    unsigned int index( ulong key);
+33c34
+<    CKmerhash(int kmer=10);
+---
+>    CKmerhash(unsigned int kmer=10);
+36,39c37,40
+<    int insert(  ulong key, const ValueClass& val);
+<    int insert( ulong key);
+<    int find( ulong key, ValueClass& val );
+<    int find( ulong key );
+---
+>    unsigned int insert(  ulong key, const ValueClass& val);
+>    unsigned int insert( ulong key);
+>    unsigned int find( ulong key, ValueClass& val );
+>    unsigned int find( ulong key );
+52c53
+<        int index;
+---
+>        uint index;

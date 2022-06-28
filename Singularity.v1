@@ -21,12 +21,22 @@ export PATH=$PATH:/opt/software/duk
   cd /opt/software
   wget https://downloads.sourceforge.net/project/duk/duk.tar
   tar xf duk.tar
+
+  git clone https://github.com/cschu/duk_singularity.git
+
   cd duk
 
-  head -n 13 duk.cpp > duk.cpp.1
-  echo "#include <cstring>" >> duk.cpp.1
-  tail -n +14 duk.cpp >> duk.cpp.1
-  mv duk.cpp.1 duk.cpp
-  head -n 20 duk.cpp
+  patch duk.cpp ../duk_singularity/duk.cpp.patch || :
+  patch kmerhash.cpp ../duk_singularity/kmerhash.cpp.patch || :
+  patch kmerhash.h ../duk_singularity/kmerhash.h.patch || :
+
+  # head -n 13 duk.cpp > duk.cpp.1
+  # echo "#include <cstring>" >> duk.cpp.1
+  # tail -n +14 duk.cpp >> duk.cpp.1
+  # mv duk.cpp.1 duk.cpp
+  # head -n 20 duk.cpp
 
   make
+
+
+

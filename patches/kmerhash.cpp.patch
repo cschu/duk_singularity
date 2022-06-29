@@ -22,53 +22,49 @@
 < int ind = ((key >> nbits) ^  key);
 ---
 > uint ind = ((key >> nbits) ^  key);
-58a59,61
->    cout << "TABLESIZE " << tablesize << endl;
->    cout << "LOADINGLIMIT " << loadingLimit << endl;
->    cout << "NEXT_TABLESIZE " << (tablesize << 1) << endl;
-72c75
+72c72
 <     for(int i=0; i<tablesize; i++)
 ---
 >     for(uint i=0; i<tablesize; i++)
-75c78
+75c75
 <     for(int i=0; i<oldTablesize; i++) {
 ---
 >     for(uint i=0; i<oldTablesize; i++) {
-91c94
+91c91
 < int CKmerhash<ValueClass>:: insert(ulong key, const ValueClass& val) {
 ---
 > unsigned int CKmerhash<ValueClass>:: insert(ulong key, const ValueClass& val) {
-97c100
+97c97
 <     int ind = index(key);
 ---
 >     uint ind = index(key);
-109c112
+109c109
 < int CKmerhash<ValueClass>:: insert(ulong key) {
 ---
 > unsigned int CKmerhash<ValueClass>:: insert(ulong key) {
-114c117
+114c114
 <     int ind = index(key);
 ---
 >     uint ind = index(key);
-124,125c127,128
+124,125c124,125
 < int CKmerhash<ValueClass>:: find(ulong key, ValueClass& val) {
 <  int ind = index(key);
 ---
 > unsigned int CKmerhash<ValueClass>:: find(ulong key, ValueClass& val) {
 >  uint ind = index(key);
-137c140
+137c137
 < int CKmerhash<ValueClass>:: find(ulong key) {
 ---
 > unsigned int CKmerhash<ValueClass>:: find(ulong key) {
-139c142
+139c139
 <  int ind = index(key);
 ---
 >  uint ind = index(key);
-157c160
+157c157
 <     int ind = index(key);
 ---
 >     uint ind = index(key);
-176c179
+176c176
 <  int i;
 ---
 >  uint i;
